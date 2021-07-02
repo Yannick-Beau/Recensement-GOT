@@ -15,7 +15,7 @@ class HouseController extends Controller
 
   public function house( $id )
   {
-    $house = House::find( $id );
+    $house = House::find( $id )->load('character');
     return View::make('maison', ['house' => $house]);
   }
 }

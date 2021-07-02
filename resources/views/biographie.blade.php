@@ -1,4 +1,4 @@
-<?php dump($character)?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -35,29 +35,26 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="avatar" style="background: #e3e3e3;">
+                    <div class="avatar" style="background: #<?= $character->house[0]->colour ?>;">
                         <img src="<?= url("assets/img/$character->image") ?>" alt="<?= $character->first_name ?>">
                     </div>
                     <div class="infos">
                         <h3>Maisons</h3>
                         <div class="houses">
                             <ul>
-                                <li class="house-logo" style="background: #e3e3e3;">
+                            <?php foreach( $character->house as $house) : ?>
+                                <li class="house-logo" style="background: #<?= $house->colour ?>;">
                                     <a href="#/house/1">
-                                        <img src="<?= url("assets/img/houses/$character->last_name.png") ?>" alt="<?= $character->last_name ?>">
+                                        <img src="<?= url("assets/img/houses/$house->image") ?>" alt="<?= $house->name ?>">
                                     </a>
                                 </li>
-                                <li class="house-logo" style="background: #2b3aab;">
-                                    <a href="#/house/3">
-                                        <img src="./Game of Thrones_files/tully.png" alt="Tully">
-                                    </a>
-                                </li>
+                            <?php endforeach; ?>
                             </ul>
                         </div>
                         <ul class="meta">
-                            <li><span>Rang : </span> Noble </li>
-                            <li><span>Mère : </span> Non renseigné </li>
-                            <li><span>Père : </span> Non renseigné </li>
+                            <li><span>Rang : </span> <?= $character->title->name ?></li>
+                            <li><span>Mère : </span> <?= isset($mother) ? $mother->first_name. " " .$mother->last_name : "Inconnu"?> </li>
+                            <li><span>Père : </span> <?= isset($father) ?$father->first_name. " " .$father->last_name : "Inconnu"?> </li>
                         </ul>
                     </div>
                 </div>

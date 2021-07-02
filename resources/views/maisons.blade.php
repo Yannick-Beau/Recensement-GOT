@@ -28,7 +28,7 @@
             <?php foreach( $houses as $house ) : ?>
                 <li class="house-logo" style="background: #<?= $house->colour ?>;">
                     <a href="<?= route( 'house-house', [ 'id' => $house->id ] ) ?>">
-                        <img src="<?= url("assets/img/houses/$house->name.png") ?>" alt="Stark">
+                        <img src="<?= url("assets/img/houses/$house->image") ?>" alt="Stark">
                     </a>
                 </li>
             <?php endforeach; ?>

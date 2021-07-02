@@ -20,6 +20,6 @@ class Character extends Model
     }
     public function house()
     {
-        return $this->belongsTo( 'App\Models\House' );
+        return $this->belongsToMany( 'App\Models\House', 'house_has_characters', "character", "house" );
     }
 }

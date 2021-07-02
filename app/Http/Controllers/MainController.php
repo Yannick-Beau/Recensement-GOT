@@ -9,7 +9,7 @@ class MainController extends Controller
 {
   public function home()
   {
-    $characters = Character::all();
+    $characters = Character::all()->load( 'house' );
     return View::make('home', ['characters' => $characters]);
   }
 }
